@@ -17,6 +17,7 @@ li{
   flex-direction: row;
   gap:20px;
   color: white;
+  align-items: center;
   font-family: Poppins;
   font-size: 15px;
 }
@@ -26,9 +27,11 @@ li{
   transition: 0.5s ease all;
   cursor: pointer;
 }
-.homepage{
-  background-color: #191919;
-  height: 100vh;
+.homePage{
+  background-color:#191919;
+  min-height: 1000px;
+  width: 100%;
+  
 }
 .lastOptions{
   display: flex;
@@ -73,10 +76,15 @@ li{
   
   
 }
+
 .logo h2{ 
   font-size: 30px;
   color: #00A7FF;
-  font-family: Audiowide
+  font-family: Audiowide;
+  margin: 0;
+  
+  
+  
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -330,13 +338,39 @@ cursor: pointer;
   justify-content: center;
   /* align-items: center; */
   padding-block: 40px;
+  margin-bottom: 10px;
 }
-.gap h2{
-  color: white;
-  /* border: 3px solid white; */
-  z-index: 1000;
-  position: relative;
-  height: fit-content;
+.popular {
+  font-family: "Poppins";
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    
+    min-height: 70px;
+    
+
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  max-width: 400px;
+  text-align: center;
+  
+}
+
+.popular.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 button {
   background: transparent;
@@ -354,11 +388,7 @@ html {
 }
 
 /* Scroll animation for gap div */
-.popular{
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateX(-20px);
-}
+
 
 .ul {
   display: grid;

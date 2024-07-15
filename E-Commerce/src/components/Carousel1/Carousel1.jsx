@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "./styles.css";
@@ -13,6 +14,7 @@ import image5 from "../HomePage/images/ps5.jpg";
 import image6 from "../HomePage/images/gpus.jpg";
 import image7 from "../HomePage/images/giftcard.png";
 import image8 from "../HomePage/images/monitor.png";
+import { Link } from "react-router-dom";
 
 const slides = [
   { title: "Cases", image: image1 },
@@ -26,8 +28,28 @@ const slides = [
 ];
 
 export const Carousel1 = () => {
+  const carouselRef = useRef(null);
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const rect = carouselRef.current.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        carouselRef.current.classList.add("animate");
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="page carousel-1-page">
+    <section ref={carouselRef} className="page carousel-1-page">
       <Swiper
         grabCursor
         centeredSlides
@@ -49,7 +71,7 @@ export const Carousel1 = () => {
             slidesPerView: 2,
           },
           1050: {
-            slidesPerView: 3,
+            slidesPerView: 2,
           },
         }}
       >
@@ -63,7 +85,10 @@ export const Carousel1 = () => {
             <div>
               <div>
                 <h2>{slide.title}</h2>
-                <a>explore</a>
+                <Link className="explore" to={"./"+slide.title.toLowerCase()}>
+                <p>explore</p>
+                </Link>
+                  
               </div>
             </div>
           </SwiperSlide>

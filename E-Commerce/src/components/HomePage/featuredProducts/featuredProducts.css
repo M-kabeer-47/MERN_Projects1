@@ -68,6 +68,7 @@ p{
 }
 .featuredProduct {
     overflow: hidden; /* Ensure the .cart doesn't overflow */
+    
   }
  
   

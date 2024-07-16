@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import image1 from "./value-1.png";
 import image2 from "./value-2.png";
 import image3 from "./value-3.png";
@@ -23,25 +23,36 @@ const featuredProducts = [
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3; // Number of items to display per slide
+  const [itemsPerPage, setItemsPerPage] = useState(3); // Default to 3 items per page
   const totalItems = featuredProducts.length;
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 950) {
+        setItemsPerPage(1);
+      } else {
+        setItemsPerPage(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const slideLeft = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? totalItems - itemsPerPage : prevIndex - itemsPerPage));
+    if (currentIndex !== 0) {
+      setCurrentIndex((prevIndex) => Math.max(prevIndex - itemsPerPage, 0));
+    }
   };
 
   const slideRight = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + itemsPerPage >= totalItems ? 0 : prevIndex + itemsPerPage));
+    setCurrentIndex((prevIndex) => Math.min(prevIndex + itemsPerPage, totalItems - itemsPerPage));
   };
 
-  // Ensure we handle wrapping around
-  const displayedProducts = [
-    ...featuredProducts.slice(currentIndex, currentIndex + itemsPerPage),
-    ...featuredProducts.slice(0, Math.max(0, (currentIndex + itemsPerPage) - totalItems))
-  ];
-
   // Calculate the transform value for smooth sliding
-  const translateX = -(currentIndex * (100 / itemsPerPage));
+  const translateX = -(currentIndex * 100 / itemsPerPage);
 
   return (
     <div className="sliderBigContainer">
@@ -49,18 +60,21 @@ const Slider = () => {
         <p className='prebuildTitle'>FEATURED PRE BUILDS</p>
       </div>
       <div className="sliderContainer">
-        <button className="arrowButton left" onClick={slideLeft}>←</button>
-        <div className="slider" style={{ transform: `translateX(${translateX}%)` }}>
-          {displayedProducts.map((product, index) => (
-            <HomeProducts
-              key={index}
-              product={product}
-              index={index}
-              type={"prebuild"}
-            />
-          ))}
+        <button className="arrowButton left" onClick={slideLeft} disabled={currentIndex === 0}>←</button>
+        <div className="sliderWrapper">
+          <div className="slider" style={{ transform: `translateX(${translateX}%)` }}>
+            {featuredProducts.map((product, index) => (
+              <div key={index} className="sliderItem">
+                <HomeProducts
+                  product={product}
+                  index={index}
+                  type={"prebuild"}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <button className="arrowButton right" onClick={slideRight}>→</button>
+        <button className="arrowButton right" onClick={slideRight} disabled={currentIndex + itemsPerPage >= totalItems}>→</button>
       </div>
     </div>
   );

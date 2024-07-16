@@ -46,8 +46,9 @@ export default function App() {
         </div>
         <Carousel1 />
         <FeaturedProduct />
+        <Slider />
       </div>
-      <Slider />
+      
     </>
   );
 }

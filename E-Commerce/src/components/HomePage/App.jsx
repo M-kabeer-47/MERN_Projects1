@@ -6,6 +6,7 @@ import BackgroundPic from "./BackgroundPic.jsx";
 import { Carousel1 } from "../Carousel1/Carousel1.jsx";
 import './index.css';
 import FeaturedProduct from "./featuredProducts/FeaturedProduct.jsx";
+import Slider from "../HomePage/featuredPreBuids/PreBuilds.jsx";
 
 export default function App() {
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1050);
@@ -46,6 +47,7 @@ export default function App() {
         <Carousel1 />
         <FeaturedProduct />
       </div>
+      <Slider />
     </>
   );
 }

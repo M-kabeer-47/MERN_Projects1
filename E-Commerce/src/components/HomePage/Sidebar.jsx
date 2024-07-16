@@ -1,4 +1,4 @@
-import { faMagnifyingGlass, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faHeart, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -104,15 +104,19 @@ const Sidebar = (props) => {
         <ul>
           <li>
             <button type="button">
-              <i className="ai-home-alt1"></i>
+
               <p>Home</p>
             </button>
           </li>
           <li>
             <button type="button" onClick={handleButtonClick}>
-              <i className="ai-gear"></i>
+            <div className="buttonDiv">
               <p>Products</p>
-              <i className="ai-chevron-down-small"></i>
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                style={{ color: "#ffffff", fontSize: "16px" }}
+              />
+              </div>
             </button>
             <div className="sub-menu">
               <ul>
@@ -130,9 +134,14 @@ const Sidebar = (props) => {
           </li>
           <li>
             <button type="button" onClick={handleButtonClick}>
-              <i className="ai-folder-add"></i>
+              <div className="buttonDiv">
               <p>Pre Build PC</p>
-              <i className="ai-chevron-down-small"></i>
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                style={{ color: "#ffffff", fontSize: "16px" }}
+              />
+              </div>
+              
             </button>
             <div className="sub-menu">
               <ul>

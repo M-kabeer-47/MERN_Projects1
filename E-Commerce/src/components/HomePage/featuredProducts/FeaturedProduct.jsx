@@ -67,7 +67,7 @@ const featuredProducts = [
 ];
 
 export default function FeaturedProduct() {
-  const [hoveredProduct, setHoveredProduct] = useState(null);
+  
 
   return (
     <div className="featuredProductsDiv">

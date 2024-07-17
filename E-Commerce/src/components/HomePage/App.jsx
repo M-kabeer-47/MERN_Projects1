@@ -3,10 +3,11 @@ import Navbar from "./Navbar.jsx";
 import Sidebar from "./Sidebar.jsx";
 import Navbar2 from "./Navbar2.jsx";
 import BackgroundPic from "./BackgroundPic.jsx";
-import { Carousel1 } from "../Carousel1/Carousel1.jsx";
-import './index.css';
+import { Carousel1 } from "./Carousel1/Carousel1.jsx";
+// import './index.css';
 import FeaturedProduct from "./featuredProducts/FeaturedProduct.jsx";
 import Slider from "../HomePage/featuredPreBuids/PreBuilds.jsx";
+import VideoDiv from "../videoDiv/VideoDiv.jsx";
 
 export default function App() {
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1050);
@@ -47,6 +48,7 @@ export default function App() {
         <Carousel1 />
         <FeaturedProduct />
         <Slider />
+        <VideoDiv />
       </div>
       
     </>

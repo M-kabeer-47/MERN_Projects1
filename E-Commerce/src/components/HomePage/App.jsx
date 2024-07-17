@@ -8,6 +8,7 @@ import { Carousel1 } from "./Carousel1/Carousel1.jsx";
 import FeaturedProduct from "./featuredProducts/FeaturedProduct.jsx";
 import Slider from "../HomePage/featuredPreBuids/PreBuilds.jsx";
 import VideoDiv from "../videoDiv/VideoDiv.jsx";
+import Footer from "./Footer/Footer.jsx";
 
 export default function App() {
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1050);
@@ -49,6 +50,7 @@ export default function App() {
         <FeaturedProduct />
         <Slider />
         <VideoDiv />
+        <Footer />
       </div>
       
     </>

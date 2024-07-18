@@ -51,6 +51,7 @@ export default function App() {
         <Slider />
         <VideoDiv />
         <Footer />
+        
       </div>
       
     </>

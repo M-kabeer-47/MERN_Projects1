@@ -20,179 +20,180 @@ async function run() {
     const database = client.db("E-Commerce");
     
     // Access the "processors" collection
-    const collection = database.collection("Headphones");
+    const collection = database.collection("Playstation");
     await collection.insertMany([
       {
-        name: "Sony WH-1000XM4",
+        name: "PlayStation 5 Console",
+        price: "PKR 120,000",
+        category: "Playstation",
+        rating: 4.9,
+        description: "The latest PlayStation 5 console with ultra-high-speed SSD and 3D audio.",
+        imageUrl: "./images/playstation.png",
+        longDescription: [
+          "Ultra-high-speed SSD",
+          "Ray tracing",
+          "4K-TV gaming",
+          "Up to 120fps with 120Hz output",
+          "HDR technology",
+          "Tempest 3D AudioTech"
+        ],
+        quantity: 500
+      },
+      {
+        name: "PlayStation 4 Pro",
+        price: "PKR 70,000",
+        category: "Playstation",
+        rating: 4.7,
+        description: "Enhanced PS4 console with 4K gaming and entertainment.",
+        imageUrl: "./images/playstation2.png",
+        longDescription: [
+          "4K-TV gaming",
+          "4K entertainment streaming",
+          "HDR technology",
+          "Faster frame rates",
+          "1TB storage",
+          "DualShock 4 wireless controller"
+        ],
+        quantity: 500
+      },
+      {
+        name: "PlayStation VR",
         price: "PKR 45,000",
-        category: "Headphones",
+        category: "Playstation",
+        rating: 4.6,
+        description: "Virtual reality headset for PlayStation with immersive experiences.",
+        imageUrl: "./images/playstation3.png",
+        longDescription: [
+          "Advanced VR display",
+          "3D audio technology",
+          "Built-in mic",
+          "Compatible with DualShock 4 and PS Move controllers",
+          "VR games and experiences",
+          "120fps support"
+        ],
+        quantity: 500
+      },
+      {
+        name: "DualSense Wireless Controller",
+        price: "PKR 12,000",
+        category: "Playstation",
         rating: 4.8,
-        description: "Wireless noise-canceling headphones with superior sound quality and long battery life.",
-        imageUrl: "./images/sony.png",
+        description: "Next-generation PlayStation 5 controller with haptic feedback and adaptive triggers.",
+        imageUrl: "./images/dualsense.png",
         longDescription: [
-          "Industry-leading noise canceling",
-          "Up to 30 hours battery life",
-          "Touch sensor controls",
-          "Speak-to-chat technology",
-          "Adaptive sound control",
-          "High-resolution audio"
+          "Haptic feedback",
+          "Adaptive triggers",
+          "Built-in microphone",
+          "Signature comfort",
+          "Create button",
+          "Wireless connectivity"
         ],
         quantity: 500
       },
       {
-        name: "Bose QuietComfort 35 II",
-        price: "PKR 40,000",
-        category: "Headphones",
-        rating: 4.7,
-        description: "Wireless noise-canceling headphones with Alexa voice control and balanced sound.",
-        imageUrl: "./images/bose.png",
-        longDescription: [
-          "World-class noise cancellation",
-          "Alexa-enabled",
-          "Balanced audio performance",
-          "Up to 20 hours battery life",
-          "Comfortable fit",
-          "Noise-rejecting dual-microphone system"
-        ],
-        quantity: 500
-      },
-      {
-        name: "Sennheiser HD 660 S",
-        price: "PKR 50,000",
-        category: "Headphones",
+        name: "PlayStation 4 Slim",
+        price: "PKR 60,000",
+        category: "Playstation",
         rating: 4.6,
-        description: "Open-back audiophile headphones with high-resolution sound and comfortable design.",
-        imageUrl: "./images/sennheiser.png",
+        description: "Sleek and lightweight PS4 console with HDR support.",
+        imageUrl: "./images/playstation4.png",
         longDescription: [
-          "Open-back design",
-          "Improved transducers",
-          "Low impedance",
-          "Comfortable ear pads",
-          "High-resolution sound",
-          "Detachable cables"
+          "HDR technology",
+          "1TB storage",
+          "Compact design",
+          "DualShock 4 wireless controller",
+          "Blu-ray Disc playback",
+          "Wireless connectivity"
         ],
         quantity: 500
       },
       {
-        name: "SteelSeries Arctis 7",
-        price: "PKR 25,000",
-        category: "Headphones",
-        rating: 4.5,
-        description: "Wireless gaming headset with surround sound and comfortable design for long sessions.",
-        imageUrl: "./images/steelseries.png",
-        longDescription: [
-          "2.4GHz wireless connection",
-          "DTS Headphone:X v2.0 surround sound",
-          "ClearCast microphone",
-          "Up to 24 hours battery life",
-          "Comfortable ear cushions",
-          "On-ear audio controls"
-        ],
-        quantity: 500
-      },
-      {
-        name: "HyperX Cloud II",
-        price: "PKR 18,000",
-        category: "Headphones",
-        rating: 4.6,
-        description: "Gaming headset with virtual 7.1 surround sound and comfortable memory foam ear cushions.",
-        imageUrl: "./images/hyperx.png",
-        longDescription: [
-          "Virtual 7.1 surround sound",
-          "53mm drivers",
-          "Comfortable memory foam ear cushions",
-          "Durable aluminum frame",
-          "Detachable noise-canceling microphone",
-          "Compatible with multiple platforms"
-        ],
-        quantity: 500
-      },
-      {
-        name: "Audio-Technica ATH-M50x",
-        price: "PKR 22,000",
-        category: "Headphones",
+        name: "PlayStation Plus Membership",
+        price: "PKR 6,000",
+        category: "Playstation",
         rating: 4.7,
-        description: "Professional studio monitor headphones with exceptional clarity and sound isolation.",
-        imageUrl: "./images/audio.png",
+        description: "12-month membership providing online multiplayer and free monthly games.",
+        imageUrl: "./images/playstation5.png",
         longDescription: [
-          "45mm large-aperture drivers",
-          "Exceptional clarity",
-          "Sound isolation",
-          "90-degree swiveling earcups",
-          "Professional-grade earpad and headband material",
-          "Detachable cables"
+          "Online multiplayer",
+          "Free monthly games",
+          "Exclusive discounts",
+          "Cloud storage",
+          "Share Play",
+          "PlayStation Plus Collection"
         ],
         quantity: 500
       },
       {
-        name: "Razer Kraken X",
-        price: "PKR 10,000",
-        category: "Headphones",
+        name: "PlayStation Camera",
+        price: "PKR 8,000",
+        category: "Playstation",
         rating: 4.4,
-        description: "Ultra-light gaming headset with 7.1 surround sound and comfortable fit.",
-        imageUrl: "./images/razer.png",
+        description: "Camera accessory for PlayStation 4 with facial recognition and voice commands.",
+        imageUrl: "./images/playstation6.png",
         longDescription: [
-          "Ultra-light at 250g",
-          "7.1 surround sound",
-          "Custom-tuned 40mm drivers",
-          "Comfortable memory foam ear cushions",
-          "Flexible, bendable microphone",
-          "Durable construction"
+          "Facial recognition",
+          "Voice commands",
+          "Broadcast yourself",
+          "Dual lenses",
+          "Four-channel microphone array",
+          "Compatible with PlayStation VR"
         ],
         quantity: 500
       },
       {
-        name: "Corsair HS70 Pro",
-        price: "PKR 20,000",
-        category: "Headphones",
+        name: "PlayStation Move Motion Controllers",
+        price: "PKR 10,000",
+        category: "Playstation",
         rating: 4.5,
-        description: "Wireless gaming headset with 7.1 surround sound and comfortable memory foam ear pads.",
-        imageUrl: "./images/corsair.png",
+        description: "Motion controllers for PlayStation VR for intuitive gaming experiences.",
+        imageUrl: "./images/playstation7.png",
         longDescription: [
-          "2.4GHz wireless connection",
-          "7.1 surround sound",
-          "50mm neodymium drivers",
-          "Memory foam ear pads",
-          "Detachable noise-canceling microphone",
-          "Up to 16 hours battery life"
+          "Precise motion tracking",
+          "Intuitive gaming experience",
+          "Ergonomic design",
+          "Rechargeable battery",
+          "Built-in vibration feedback",
+          "Compatible with PlayStation VR"
         ],
         quantity: 500
       },
       {
-        name: "Asus ROG Delta",
-        price: "PKR 28,000",
-        category: "Headphones",
+        name: "PlayStation 5 HD Camera",
+        price: "PKR 15,000",
+        category: "Playstation",
         rating: 4.6,
-        description: "Gaming headset with Hi-Res ESS Quad-DAC and customizable RGB lighting.",
-        imageUrl: "./images/asus.png",
+        description: "HD camera for PlayStation 5 with dual lenses for broadcasting and streaming.",
+        imageUrl: "./images/playstation8.png",
         longDescription: [
-          "Hi-Res ESS Quad-DAC",
-          "Customizable RGB lighting",
-          "Detachable, unidirectional boom microphone",
-          "Ergonomic D-shaped ear cups",
-          "Compatible with multiple platforms",
-          "Tough, lightweight construction"
+          "1080p capture",
+          "Background removal tools",
+          "Dual lenses",
+          "Built-in stand",
+          "Broadcast and stream",
+          "Compatible with PlayStation 5"
         ],
         quantity: 500
       },
       {
-        name: "Logitech G Pro X",
-        price: "PKR 24,000",
-        category: "Headphones",
-        rating: 4.8,
-        description: "Gaming headset with Blue VO!CE microphone technology and advanced sound features.",
-        imageUrl: "./images/logitech.png",
+        name: "PlayStation Media Remote",
+        price: "PKR 5,000",
+        category: "Playstation",
+        rating: 4.3,
+        description: "Media remote for PlayStation 5 for easy media control.",
+        imageUrl: "./images/playstation9.png",
         longDescription: [
-          "Blue VO!CE microphone technology",
-          "50mm PRO-G drivers",
-          "Comfortable memory foam earpads",
-          "Durable steel and aluminum construction",
-          "Advanced sound features",
-          "Detachable cable"
+          "Seamless console compatibility",
+          "Media playback controls",
+          "TV settings adjustment",
+          "Easy setup",
+          "Compact design",
+          "Voice control"
         ],
         quantity: 500
       }
     ]
+    
     )
     // Insert a document into the collection
   

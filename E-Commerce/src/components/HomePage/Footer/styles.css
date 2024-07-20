@@ -76,12 +76,19 @@ section.top ul {
 }
 .footerItems{
   transition: 0.3s ease all;
+  
 }
 .footerItems:hover{
   color: #00A7FF;
+  
   transition: 0.3s ease all;  
 }
+.notfooter:hover{
+  color: white;
+}
+
 .social{
+  
   font-size: 25px;
   transition: 0.3s ease all;
 }

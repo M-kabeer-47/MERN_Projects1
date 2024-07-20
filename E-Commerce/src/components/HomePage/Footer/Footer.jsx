@@ -32,18 +32,18 @@ export default function Footer() {
           </li>
           <li>
             <h3>Socials</h3>
-            <Link to="/facebook" className="footerItems">
+            <Link to="/facebook" className="footerItems notfooter">
               <FaFacebookSquare className='social' />
             </Link>
-            <Link to="/instagram" className="footerItems">
+            <Link to="/instagram" className="footerItems notfooter">
               <FaInstagramSquare className='social' />
             </Link>
-            <Link to="/twitter" className="footerItems">
+            <Link to="/twitter" className="footerItems notfooter">
               <FaTwitterSquare className='social'/>
             </Link>
-            <Link to="/linkedin" className="footerItems">
+            <Link to="/linkedin" className="footerItems notfooter">
               <FaLinkedin className='social'/>
-            </Link>
+            </Link> 
           </li>
         </ul>
       </section>

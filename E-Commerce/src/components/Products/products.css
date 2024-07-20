@@ -1,0 +1,104 @@
+.homePage{
+    background-color:#191919;
+    min-height: 1000px;
+    width: 100%;
+    
+
+  }
+  .main{
+    display: flex;
+    flex-direction: row;
+    gap:100px;
+  }
+  .filterDiv{
+    display: flex;
+    flex-direction: column;
+    
+    padding-inline:2%;
+    max-width:400px;
+    width: 100%;
+    min-height: 100vh;
+    border: 3px solid orangered;
+  }
+  .filterDiv h2{
+   
+  }
+  .dropdown{
+    z-index: 1000;
+  }
+
+
+  *{
+    margin: 0px;
+    padding: 0px;
+}
+h2{
+    font-family: "Poppins";
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+img{
+    width: px;
+    height: 200px;
+}
+p{
+    font-family: "Poppins";
+    font-size: 16px;
+    color: white;
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.images{
+    width: 300px;
+    height:240px;
+    object-fit: cover;
+    /* border: 3px solid orangered; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    /* border: 3px solid orangered; */
+}
+.productsDiv{
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    min-height: 1000px;
+    display: flex;
+    border: 3px solid blue;
+    flex-direction: column;
+    
+    align-items:center;
+    
+    padding-top:20px;
+    
+
+}
+
+.products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    justify-content: center;
+    gap:70px;
+}
+
+
+.product {
+    overflow: hidden; /* Ensure the .cart doesn't overflow */
+    
+  }
+ 
+  
+  .title, .category, .price {
+    margin: 10px 0;
+  }
+  
+
+

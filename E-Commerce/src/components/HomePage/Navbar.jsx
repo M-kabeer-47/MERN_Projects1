@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
 import SmallDropdown from "./SmallDropdown.jsx";
-
+import './index.css'
 export default function Navbar() {
     const count = 5;
   const [isExpanded, setIsExpanded] = useState(false);

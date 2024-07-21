@@ -13,8 +13,12 @@
     "@auth0/auth0-react": "^2.2.4",
     "@coreui/coreui": "^5.1.0",
     "@coreui/react": "^5.1.0",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/material": "^5.16.4",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@reduxjs/toolkit": "^2.2.6",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
@@ -33,6 +37,7 @@
     "react-router-dom": "^6.24.1",
     "react-typewriter-effect": "^1.1.0",
     "sort-by": "^1.2.0",
+    "styled-components": "^6.1.12",
     "swiper": "^11.1.4"
   },
   "devDependencies": {

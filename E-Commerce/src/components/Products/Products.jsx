@@ -7,14 +7,17 @@ import axios from 'axios';
 import { useState,useEffect, cloneElement} from 'react';
 
 export default function Products(){
+  const [title,updateTitle] = useState("")
+  const [Category,updateCategory] = useState([])
   const requestBackend = async(category)=>{
     try{
-      console.log("Category exists");
-      console.log(category);
+      
       let categoryObject= await axios.post("http://localhost:3000/products",{
         category
       })
-      console.log(categoryObject.data);
+      categoryObject = categoryObject.data;
+      updateTitle(categoryObject[0].category);
+      updateCategory(categoryObject);
     
 }
   
@@ -31,10 +34,10 @@ export default function Products(){
         window.addEventListener("resize", handleResize);
         const pathname = window.location.pathname;
         let category = pathname.substring(10,pathname.length);
-        const categories=["processors","x-box-games","hdds","ssds","monitors","powersupply","cases","graphic-cards","motherboards","rams","keyboards","mouse","cables","microphones","webcames","speakers","playstation","xbox","ps-games","gift-cards","nintendo","headphones"]
-        console.log(category);
+        const categories=["processors","x-box-games","hdds","ssds","monitors","power-supply","cases","graphic-cards","motherboards","rams","keyboards","mouse","cables","microphones","webcames","speakers","playstation","xbox","ps-games","gift-cards","nintendo","headphones"]
         if(categories.includes(category)){
-          requestBackend(category);
+          let categoryObject = requestBackend(category);
+          
         }
         else{
           console.log("category doesn't exist");
@@ -55,7 +58,10 @@ export default function Products(){
         {isWideScreen ? <Navbar /> : <Navbar2 />}
         <div className="main">
         <FilterDiv />
-        <ProductDisplay /> 
+        <ProductDisplay 
+        title={title}
+        category={Category}
+        /> 
         </div>
         <Footer />
         </div>

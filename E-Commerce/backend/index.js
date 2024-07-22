@@ -18,16 +18,17 @@ async function fetchCategory(category) {
     
     await client.connect();
     const database = client.db("E-Commerce");
-    const collection = database.collection("processors");
-    let products = await collection.find({}).toArray();
-    console.log(products);
+    
+    const collection = database.collection(category);
+    const products = await collection.find({}).toArray();
     await client.close();  
     return products;
+    
    
 
   }
   catch(er){
-    console.log(er);
+    
   }
 }
 
@@ -39,7 +40,6 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.post("/products",async(req,res)=>{
-
         let {category} = req.body
         console.log(category);
         let categoryObject = await fetchCategory(category)

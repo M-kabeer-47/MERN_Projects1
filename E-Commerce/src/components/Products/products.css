@@ -23,7 +23,7 @@
     
     max-width: 350px;
     width: 100%;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 50px;
   }
   .line{
@@ -173,7 +173,7 @@ p{
     z-index: 1;
     top: 61px;
     left: 0;
-    max-width: 240px;
+    max-width: 210px;
     width: 100%;
     opacity: 0;
     visibility: hidden;

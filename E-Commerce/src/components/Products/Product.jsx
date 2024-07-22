@@ -4,6 +4,8 @@ import { Rating } from '@mui/material';
 import Button from './Button';
 import './products.css';
 
+import Tooltip from '@mui/material/Tooltip';
+
 const Product = ({ product, index }) => {
     const [hoveredProduct, setHoveredProduct] = useState(null);
     
@@ -16,7 +18,16 @@ const Product = ({ product, index }) => {
     >
       <img src={product.imageUrl.substr(1,product.imageUrl.length)} className='images' />           
        <p className="title">{product.name}</p>
-      <Rating name="half-rating-read" defaultValue={product.rating} precision={0.2} readOnly />
+       <Tooltip title={product.rating.toFixed(1)}>
+        <Rating
+          name="half-rating-read"
+          value={product.rating}
+          precision={0.1}
+          readOnly
+          size="large"
+          
+        />
+      </Tooltip>
       <p className="category">{product.category}</p>
       <p className="price">{product.price}</p>  
       <div className="BUTTONDIV">

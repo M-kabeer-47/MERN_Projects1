@@ -5,20 +5,26 @@ import ProductDisplay from './productsDisplay.jsx';
 import Footer from "../HomePage/Footer/Footer.jsx"
 import axios from 'axios';
 import { useState,useEffect, cloneElement} from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {updateCategory} from "../../store/category.js";
 export default function Products(){
   const [title,updateTitle] = useState("")
-  const [Category,updateCategory] = useState([])
+  const [CATEGORY,UPDATECATEGORY] =useState([])
+  
   const requestBackend = async(category)=>{
     try{
       
       let categoryObject= await axios.post("http://localhost:3000/products",{
         category
       })
+      
       categoryObject = categoryObject.data;
+      console.log(categoryObject);
       updateTitle(categoryObject[0].category);
-      updateCategory(categoryObject);
-    
+      UPDATECATEGORY(categoryObject);
+      
+      
+
 }
   
     catch(error){
@@ -38,6 +44,7 @@ export default function Products(){
         if(categories.includes(category)){
           let categoryObject = requestBackend(category);
           
+      
         }
         else{
           console.log("category doesn't exist");
@@ -49,7 +56,9 @@ export default function Products(){
          
           
         };
-      }, []);
+      }, []);     
+      const dispatch = useDispatch();
+      dispatch(updateCategory(CATEGORY))
       return(
         
         
@@ -57,10 +66,12 @@ export default function Products(){
         <div className="homePage">
         {isWideScreen ? <Navbar /> : <Navbar2 />}
         <div className="main">
-        <FilterDiv />
+        <FilterDiv 
+        
+        />
         <ProductDisplay 
         title={title}
-        category={Category}
+        
         /> 
         </div>
         <Footer />

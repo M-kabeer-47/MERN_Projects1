@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import Slider from '@mui/material/Slider';
+import {filterProductsByPrice} from "../../store/category.js"
+import { useDispatch } from 'react-redux';
 
 function valuetext(value) {
   return `${value}Rs`;
@@ -12,6 +14,12 @@ export default function PriceSlider() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const dispatch = useDispatch();
+  const handleFilterClick = () => {
+    console.log("clicked");
+    console.log(value);
+    dispatch(filterProductsByPrice(value)); 
+  };
 
   return (
         <>
@@ -22,11 +30,11 @@ export default function PriceSlider() {
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
+        getAriaValueText={valuetext}    
         min={0}
-        max={140000}
+        max={500000}
       />
-      <button className='sliderButton'>Filter</button>
+      <button className='sliderButton' onClick={handleFilterClick}>Filter</button>
     </>
   );
 }

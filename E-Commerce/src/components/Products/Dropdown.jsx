@@ -7,10 +7,10 @@ import { sortLowToHigh, sortHighToLow, sortHighlyRated } from "../../store/categ
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sort, updateSort] = useState("price low to high");
+  const [sort, updateSort] = useState("");
   const dropdownRef = useRef(null);
   const dispatch = useDispatch();
-
+  const [screenWidth,updateScreenWidth] = useState(window.innerWidth)
   const handleDropdownClicked = (event) => {
     event.stopPropagation();
     setIsOpen((prev) => !prev);
@@ -23,9 +23,11 @@ const Dropdown = () => {
   };
 
   useEffect(() => {
+    document.addEventListener("resize",updateScreenWidth(window.innerWidth))
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("resize",updateScreenWidth(Window.innerWidth))
     };
   }, []);
 
@@ -41,8 +43,9 @@ const Dropdown = () => {
 
   return (
     <div className="Dropdown" ref={dropdownRef}>
-      <button onClick={handleDropdownClicked}>
-        <p>{"Sort by: " + sort}</p>
+      <button onClick={handleDropdownClicked} className="firstButton">
+        {screenWidth > 500 ?  <p>{"Sort by: " + sort}</p> : <p>Sort by</p> }
+       
         <FontAwesomeIcon
           icon={faCaretDown}
           style={{ color: "#ffffff", fontSize: "16px" }}

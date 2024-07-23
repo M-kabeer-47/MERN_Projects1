@@ -1,35 +1,59 @@
-import { useEffect, useState } from "react"
-import HomeProducts from "../HomeProducts"
-import './products.css'
-import Product from "./Product"
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
+import './products.css';
+import Product from "./Product";
 
-export default function ProductDisplay(props) {
-  let isFiltered = useSelector((state)=>state.category.isFiltered)
+export default function ProductDisplay({ title, loading }) {
+  const isFiltered = useSelector((state) => state.category.isFiltered);
   let CATEGORY;
-  if(isFiltered){
-    CATEGORY = useSelector((state)=>state.category.filteredCategory)   
+  if (isFiltered) {
+    CATEGORY = useSelector((state) => state.category.filteredCategory);
+  } else {
+    CATEGORY = useSelector((state) => state.category.category);
   }
-  else{
-    CATEGORY = useSelector((state)=>state.category.category);
-  }
- 
-  useEffect(()=>{
-    console.log(CATEGORY);
-  })
-    return (
-      <div className="productsDiv">
-        <h2 className="category">{props.title}</h2>
-        <hr className="line"></hr>
-        <div className="products">
-          {CATEGORY.map((product, index) => (
+
+  return (
+    <div className="productsDiv">
+      {loading ? (
+        <div className="skeleton skeleton-title"></div>
+      ) : (
+        <h2 className={"category"}>{title}</h2>
+      )}
+      {!loading && <hr className="line" /> }
+      
+      <div className="products">
+        {loading ? (
+          // Render 3 skeletons
+          <>
+            <div className="container">
+              <div className="skeleton skeleton-1"></div>
+              <div className="skeleton skeleton-2"></div>
+              <div className="skeleton skeleton-3"></div>
+              <div className="skeleton skeleton-4"></div>
+            </div>
+            <div className="container">
+              <div className="skeleton skeleton-1"></div>
+              <div className="skeleton skeleton-2"></div>
+              <div className="skeleton skeleton-3"></div>
+              <div className="skeleton skeleton-4"></div>
+            </div>
+            <div className="container">
+              <div className="skeleton skeleton-1"></div>
+              <div className="skeleton skeleton-2"></div>
+              <div className="skeleton skeleton-3"></div>
+              <div className="skeleton skeleton-4"></div>
+            </div>
+          </>
+        ) : (
+          // Render products
+          CATEGORY.map((product, index) => (
             <Product
-            key={index}
-            product={product}
-            index={index}
-             />
-          ))}
-        </div>
+              key={index}
+              product={product}
+              index={index}
+            />
+          ))
+        )}
       </div>
-    )
+    </div>
+  );
 }

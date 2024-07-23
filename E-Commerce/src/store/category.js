@@ -4,13 +4,15 @@ const initialState = {
   category: [],
   filteredCategory: [],
   isFiltered: false,
-  lastSort: 'none'  // Add a field to track the last sort action
+  lastSort: 'none',  // Add a field to track the last sort action
+  
 };
 
 const categorySlice = createSlice({
   name: "category",
   initialState,
   reducers: {
+    
     updateCategory: (state, action) => {
       state.category = action.payload;
       state.filteredCategory = action.payload;  // Reset filtered category

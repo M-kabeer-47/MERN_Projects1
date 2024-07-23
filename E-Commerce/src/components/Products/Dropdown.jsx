@@ -52,7 +52,7 @@ const Dropdown = () => {
         />
       </button>
       <div className="Menu">
-        <button onClick={() => {
+        <button className="firstButton" onClick={() => {
           updateSort("price low to high");
           dispatch(sortLowToHigh());
           setIsOpen(false);

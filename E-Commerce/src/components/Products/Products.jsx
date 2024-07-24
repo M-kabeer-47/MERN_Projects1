@@ -7,11 +7,14 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCategory } from "../../store/category.js";
+import { useParams } from 'react-router-dom';
+
 
 export default function Products() {
   const [title, updateTitle] = useState("");
   const [CATEGORY, UPDATECATEGORY] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {category: categoryParam} = useParams();
 
   const requestBackend = async (category) => {
     try {
@@ -36,7 +39,9 @@ export default function Products() {
   };
 
   useEffect(() => {
+    
     window.addEventListener("resize", handleResize);
+    
     const pathname = window.location.pathname;
     let category = pathname.substring(10, pathname.length);
     const categories = ["processors", "x-box-games", "hdds", "ssds", "monitors", "power-supply", "cases", "graphic-cards", "motherboards", "rams", "keyboards", "mouse", "cables", "microphones", "webcames", "speakers", "playstation", "xbox", "ps-games", "gift-cards", "nintendo", "headphones"]
@@ -59,7 +64,7 @@ export default function Products() {
         {isWideScreen ? <Navbar /> : <Navbar2 />}
         <div className="main">
           <FilterDiv />
-          <ProductDisplay title={title} loading={loading} />
+          <ProductDisplay title={title} loading={loading} category={categoryParam} />
         </div>
         <Footer />
       </div>

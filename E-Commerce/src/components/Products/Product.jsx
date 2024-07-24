@@ -5,12 +5,17 @@ import Button from './Button';
 import './products.css';
 
 import Tooltip from '@mui/material/Tooltip';
-
-const Product = ({ product, index }) => {
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {updateProduct} from "../../store/category.js"
+const Product = ({ product, index,category }) => {
     const [hoveredProduct, setHoveredProduct] = useState(null);
-    
+    const dispatch = useDispatch()
     
   return (
+    <Link to={`/product/${product._id}?category=${category}`} onClick={()=>{
+      dispatch(updateProduct(product))
+    }}> 
     <div 
       className="featuredProduct Product"
       onMouseEnter={() => setHoveredProduct(index)}
@@ -40,6 +45,8 @@ const Product = ({ product, index }) => {
         /> 
        </div> 
      </div> 
+     </Link>
+    
   );
 };
 

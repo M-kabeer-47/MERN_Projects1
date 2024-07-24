@@ -91,4 +91,4 @@ const categorySlice = createSlice({
 });
 
 export default categorySlice.reducer;
-export const { sortHighToLow, sortLowToHigh, sortHighlyRated, updateCategory, filterProductsByPrice } = categorySlice.actions;
+export const { sortHighToLow, sortLowToHigh, sortHighlyRated, updateCategory, filterProductsByPrice,updateProduct } = categorySlice.actions;

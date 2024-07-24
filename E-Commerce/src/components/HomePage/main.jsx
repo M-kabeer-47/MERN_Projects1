@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Products from '../Products/Products.jsx'
 import { store } from '../../store/store.js'
 import { Provider } from 'react-redux'
+import Product from '../Product/Product.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,9 @@ const router = createBrowserRouter([
   },{
     path: "/products/:category",
     element: <Products />
+  },{
+    path: "/product/:product",
+    element: <Product />
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

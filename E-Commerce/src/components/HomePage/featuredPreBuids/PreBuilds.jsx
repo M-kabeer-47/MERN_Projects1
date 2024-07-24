@@ -8,7 +8,7 @@ import image6 from "./value-6.png";
 import image7 from "./value-7.png";
 import image8 from "./value-8.png";
 import './index.css'; // Ensure this imports the CSS file with the above styles
-import HomeProducts from '../../HomeProducts';
+import HomeProducts from '../HomeProducts';
 
 const featuredProducts = [
   { title: "Value 1", category: "Pre Build PC, Value", price: "Rs50,000", image: image1 },

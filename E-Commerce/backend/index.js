@@ -39,6 +39,24 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
+app.get("/product/:category/:id", async (req, res) => {
+  const { category, id } = req.params;
+  try {
+    console.log(`Fetching product with ID: ${id} from category: ${category}`);
+    const products = await fetchCategory(category);
+    const product = products.find(p => p._id.toString() === id);
+
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404).json({ error: "Product not found." });
+    }
+  } catch (error) {
+    console.error("Error handling GET /product/:category/:id:", error);
+    res.status(500).json({ error: "An error occurred while fetching the product." });
+  }
+});
+
 app.post("/products",async(req,res)=>{
         let {category} = req.body
         console.log(category);
@@ -47,6 +65,7 @@ app.post("/products",async(req,res)=>{
 
 
 })
+
 app.listen(3000,(req,res)=>{
     console.log("Server is listening on Port 3000");
     

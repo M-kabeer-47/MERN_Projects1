@@ -76,6 +76,8 @@ section.top ul {
 }
 .footerItems{
   transition: 0.3s ease all;
+  width: fit-content;
+  
   
 }
 .footerItems:hover{

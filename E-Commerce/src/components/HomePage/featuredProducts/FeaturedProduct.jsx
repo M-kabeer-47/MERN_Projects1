@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FontAwesome from "react-fontawesome";
-import HomeProducts from "../../HomeProducts";
+import HomeProducts from "../HomeProducts";
 
 const featuredProducts = [
   {

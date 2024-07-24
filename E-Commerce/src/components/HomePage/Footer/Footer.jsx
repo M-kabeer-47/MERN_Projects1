@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import './styles.css';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaLinkedin } from "react-icons/fa";
-
+import { useEffect } from 'react';
+function handleClick(){
+  window.location.href();
+}
 export default function Footer() {
   return (
     <footer>
@@ -10,11 +13,11 @@ export default function Footer() {
         <ul>
           <li>
             <h3>Products</h3>
-            <Link to="/playstation" className="footerItems">Playstation</Link>
-            <Link to="/xbox" className="footerItems">X-Box</Link>
-            <Link to="/accessories" className="footerItems">Accessories</Link>
-            <Link to="/giftcards" className="footerItems">Gift Cards</Link>
-            <Link to="/monitors" className="footerItems">Monitors</Link>
+            <Link to="/products/playstation" className="footerItems" onClick={handleClick}>Playstation</Link>
+            <Link to="/products/xbox" className="footerItems" onClick={handleClick}>X-Box</Link>
+            <Link to="/products/accessories" className="footerItems" onClick={handleClick}>Accessories</Link>
+            <Link to="/products/giftcards" className="footerItems" onClick={handleClick}>Gift Cards</Link>
+            <Link to="/products/monitors" className="footerItems" onClick={handleClick}>Monitors</Link>
           </li>
           <li>
             <h3>Pre-PC Builds</h3>

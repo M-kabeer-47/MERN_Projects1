@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import './products.css';
 import Product from "./Product";
 
-export default function ProductDisplay({ title, loading,category }) {
+export default function ProductDisplay({ title, loading }) {
   const isFiltered = useSelector((state) => state.category.isFiltered);
   let CATEGORY;
   if (isFiltered) {
@@ -50,7 +50,7 @@ export default function ProductDisplay({ title, loading,category }) {
               key={index}
               product={product}
               index={index}
-              category={category}
+              
             />
           ))
         )}

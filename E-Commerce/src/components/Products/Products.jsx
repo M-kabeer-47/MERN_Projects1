@@ -14,7 +14,7 @@ export default function Products() {
   const [title, updateTitle] = useState("");
   const [CATEGORY, UPDATECATEGORY] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {category: categoryParam} = useParams();
+  
 const navigate =useNavigate()
   const requestBackend = async (category) => {
     try {
@@ -69,7 +69,7 @@ const navigate =useNavigate()
         {isWideScreen ? <Navbar /> : <Navbar2 />}
         <div className="main">
           <FilterDiv />
-          <ProductDisplay title={title} loading={loading} category={categoryParam} />
+          <ProductDisplay title={title} loading={loading} />
         </div>
         <Footer />
       </div>

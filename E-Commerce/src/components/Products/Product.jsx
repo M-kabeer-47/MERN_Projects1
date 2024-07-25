@@ -7,14 +7,14 @@ import './products.css';
 import Tooltip from '@mui/material/Tooltip';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {updateProduct} from "../../store/category.js"
-const Product = ({ product, index,category }) => {
+
+const Product = ({ product, index }) => {
     const [hoveredProduct, setHoveredProduct] = useState(null);
-    const dispatch = useDispatch()
+    
     
   return (
-    <Link to={`/product/${product._id}?category=${category}`} onClick={()=>{
-      dispatch(updateProduct(product))
+    <Link to={`/product/${product._id}`} onClick={()=>{
+      
     }}> 
     <div 
       className="featuredProduct Product"

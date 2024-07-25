@@ -12,7 +12,9 @@ const categorySlice = createSlice({
   name: "category",
   initialState,
   reducers: {
-    
+    updateSearchText: (state,action)=>{
+      state.text = action.payload;
+    },
     updateCategory: (state, action) => {
       state.category = action.payload;
       state.filteredCategory = action.payload;  // Reset filtered category
@@ -91,4 +93,4 @@ const categorySlice = createSlice({
 });
 
 export default categorySlice.reducer;
-export const { sortHighToLow, sortLowToHigh, sortHighlyRated, updateCategory, filterProductsByPrice,updateProduct } = categorySlice.actions;
+export const { sortHighToLow, sortLowToHigh, sortHighlyRated, updateCategory, filterProductsByPrice } = categorySlice.actions;

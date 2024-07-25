@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
-import { ServerApiVersion, MongoClient } from 'mongodb';
+import { ServerApiVersion, MongoClient,ObjectId } from 'mongodb';
 import cors from "cors";
 const uri = "mongodb+srv://User1:byoabD1X2y7KzU2I@e-commerce.kopglez.mongodb.net/";
 
@@ -42,22 +42,31 @@ async function fetchCategory(category) {
   }
 }
 
-
+async function fetchProduct(id){
+  await client.connect();
+  const database = await client.db("E-Commerce");
+  let ID = new ObjectId(id)
+console.log(ID);
+  let product =  await database.collection("Products").findOne({_id:  ID})
+  console.log(product);
+return product;
+}
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.get("/product/:category/:id", async (req, res) => {
-  const { category, id } = req.params;
+app.get("/product/:id", async (req, res) => {
+  
+  const {id} =req.params
+  console.log(id);
   try {
-    console.log(`Fetching product with ID: ${id} from category: ${category}`);
-    const products = await fetchCategory(category);
-    const product = products.find(p => p._id.toString() === id);
 
+    const product = await fetchProduct(id)
     if (product) {
-      res.json(product);
+      console.log("yo");
+      res.send(product);
     } else {
       res.status(404).json({ error: "Product not found." });
     }
@@ -82,7 +91,26 @@ app.get("/products/:category",async(req,res)=>{
 
 
 })
-
+app.get("/search/:text",async(req,res)=>{
+  let {text} = req.params
+  text = String(text)
+  console.log(text);
+  await client.connect();
+  const database = client.db("E-Commerce");
+  const products = await database.collection("Products").find({
+    $or: [
+      { name: { $regex: text, $options: 'i' } },
+      { category: { $regex: text, $options: 'i' } }
+    ]
+  }).toArray();
+  
+  if(products.length===0){
+    res.send(false)
+  }
+  else{
+    res.json(products)
+  }
+})
 app.listen(3000,(req,res)=>{
     console.log("Server is listening on Port 3000");
     

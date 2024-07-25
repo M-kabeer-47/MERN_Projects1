@@ -3,16 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faHeart,
-  faMagnifyingGlass,
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
 import SmallDropdown from "./SmallDropdown.jsx";
-import './index.css'
+import SearchBar from "./SearchBar"; // Import the SearchBar component
+import './index.css';
+
 export default function Navbar() {
-    const count = 5;
-  const [isExpanded, setIsExpanded] = useState(false);
-  const searchRef = useRef(null);
+  const count = 5;
   const [hoveredIcon, setHoveredIcon] = useState(null);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [isSmallDropdownVisible, setIsSmallDropdownVisible] = useState(false);
@@ -35,10 +34,7 @@ export default function Navbar() {
   });
 
   const handleClickOutside = (event) => {
-    // Check if the click was outside the dropdown and the products/deals div
     if (
-      searchRef.current &&
-      !searchRef.current.contains(event.target) &&
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target) &&
       productsRef.current &&
@@ -46,7 +42,6 @@ export default function Navbar() {
       dealsRef.current &&
       !dealsRef.current.contains(event.target)
     ) {
-      setIsExpanded(false);
       setIsDropdownVisible(false); // Hide the dropdown if clicked outside
       setIsSmallDropdownVisible(false); // Hide the small dropdown if clicked outside
     }
@@ -120,47 +115,32 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div
-          className={`search ${isExpanded ? "expanded" : ""}`}
-          onClick={() => setIsExpanded(true)}
-          ref={searchRef}
-        >
-          {!isExpanded && (
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="icons searchIcon"
-              style={{ color: "#00a7ff" }}
-            />
-          )}
-          <input
-            type="text"
-            placeholder="Search for products"
-            className="inputSearch"
-          />
-        </div>
+        <SearchBar
+        expanded={true}
+         /> {/* Use the SearchBar component */}
+
         <div className="lastOptions">
           <p className="loginOption">Login/Sign Up</p>
           <div className="icon-container">
-      <FontAwesomeIcon
-        icon={faHeart}
-        className="icons lastIcons"
-        style={iconStyle("heart")}
-        onMouseEnter={() => handleMouseEnter("heart")}
-        onMouseLeave={handleMouseLeave}
-      />
-      {count > 0 && <span className="badge">{count}</span>}
-    </div>
-    <div className="icon-container">
-    <FontAwesomeIcon
-            icon={faCartShopping}
-            className="icons lastIcons"
-            style={iconStyle("cart")}
-            onMouseEnter={() => handleMouseEnter("cart")}
-            onMouseLeave={handleMouseLeave}
-          />
-      {count > 0 && <span className="badge badge2">{count}</span>}
-    </div>
-          
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="icons lastIcons"
+              style={iconStyle("heart")}
+              onMouseEnter={() => handleMouseEnter("heart")}
+              onMouseLeave={handleMouseLeave}
+            />
+            {count > 0 && <span className="badge">{count}</span>}
+          </div>
+          <div className="icon-container">
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              className="icons lastIcons"
+              style={iconStyle("cart")}
+              onMouseEnter={() => handleMouseEnter("cart")}
+              onMouseLeave={handleMouseLeave}
+            />
+            {count > 0 && <span className="badge badge2">{count}</span>}
+          </div>
         </div>
       </div>
     </>

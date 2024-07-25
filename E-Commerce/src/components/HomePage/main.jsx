@@ -8,6 +8,7 @@ import { store } from '../../store/store.js'
 import { Provider } from 'react-redux'
 import Product from '../Product/Product.jsx'
 import ErrorPage from '../ErrorPage/ErrorPage.jsx'
+import SearchResult from '../SearchResult/SearchResult.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,14 @@ const router = createBrowserRouter([
     element: <Product />
   },
   {
-    path: "/notfound",
-    element: <ErrorPage />
-  },{
+    path: "/searchResult",
+    element: <SearchResult />
+  },
+  // {
+  //   path: "/notfound",
+  //   element: <ErrorPage />
+  // },
+  {
     path: "*",
     element: <ErrorPage />
   }

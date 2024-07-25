@@ -13,19 +13,16 @@ export default function Product() {
   const [product,updateProduct] = useState(null)
   const location = useLocation();
   const [isLoading,updateLoading] = useState(true)
-    const id = useParams().product
+    const id = useParams().product;
   const handleResize = () => {
     setIsWideScreen(window.innerWidth >= 1050);
   };
 async function fetchProduct(){
     const queryParams = new URLSearchParams(location.search);
-    let category;
-    queryParams.forEach((value, key) => {
-        category = value.toLowerCase();
-    });
-    console.log(category);
+    
+    
     console.log(id);
-    let pr = await axios.get(`http://localhost:3000/product/${category}/${id}`)
+    let pr = await axios.get(`http://localhost:3000/product/${id}`)
     updateProduct(pr.data);
     updateLoading(false);
     console.log(pr.data);

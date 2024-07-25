@@ -2,6 +2,7 @@ import { faMagnifyingGlass, faHeart, faCaretDown } from "@fortawesome/free-solid
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const Sidebar = (props) => {
   const count = 2;
@@ -88,18 +89,9 @@ const Sidebar = (props) => {
     <aside className={`sidebar ${props.isOpen ? 'active' : ''}`}>
       <div className="upperSidebar">
         <header>
-          <div className="search">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="icons searchIcon"
-              style={{ color: "#00a7ff" }}
-            />
-            <input
-              type="text"
-              placeholder="Search for products"
-              className="inputSearch"
-            />
-          </div>
+          <SearchBar 
+          expanded={false}
+          />
         </header>
         <ul>
           <li>

@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCategory } from "../../store/category.js";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 export default function Products() {
@@ -15,19 +15,24 @@ export default function Products() {
   const [CATEGORY, UPDATECATEGORY] = useState([]);
   const [loading, setLoading] = useState(true);
   const {category: categoryParam} = useParams();
-
+const navigate =useNavigate()
   const requestBackend = async (category) => {
     try {
       setLoading(true);
-      let categoryObject = await axios.post("http://localhost:3000/products", {
-        category
-      });
-      categoryObject = categoryObject.data;
-      console.log(categoryObject);
-      updateTitle(categoryObject[0].category);
-      UPDATECATEGORY(categoryObject);
-      setLoading(false);
-    } catch (error) {
+      let categoryObject = await axios.get(`http://localhost:3000/products/${category}`);
+      if(categoryObject.data === false){
+        console.log("False");
+        navigate("/notfound");
+      }
+      else{
+        categoryObject = categoryObject.data;
+        console.log(categoryObject);
+        updateTitle(categoryObject[0].category);
+        UPDATECATEGORY(categoryObject);
+        setLoading(false);
+      }     
+      }
+    catch (error) {
       console.error(error);
       setLoading(false);
     }
@@ -48,12 +53,12 @@ export default function Products() {
     if (categories.includes(category)) {
       let categoryObject = requestBackend(category);
     } else {
-      console.log("category doesn't exist");
+      navigate("/notfound")
     }
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [window.location.pathname]);
 
   const dispatch = useDispatch();
   dispatch(updateCategory(CATEGORY));

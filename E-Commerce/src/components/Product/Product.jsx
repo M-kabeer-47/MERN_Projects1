@@ -4,7 +4,10 @@ import Navbar2 from "../HomePage/Navbar2";
 import './product.css'
 import { useLocation,useParams} from "react-router-dom";
 import axios from "axios";
+
 import { faL } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Products/Button";
+import IncrementDecrementBtn from "./Quantity";
 export default function Product() {
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1050);
   const [product,updateProduct] = useState(null)
@@ -53,11 +56,30 @@ async function fetchProduct(){
             <h2 className="productTitle">{product.name}</h2>
             <p className="productCategory">{product.category}</p>
             <p className="productDescription">{product.description}</p>
+            <h3>Specifications</h3>
             <div className="specsDiv">
+
               {product.longDescription.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </div>
+            <div className="BUTTONDIV button-div">
+              <IncrementDecrementBtn 
+              minValue={0}
+              maxValue={100}
+              />
+              <div className="BUTTONDIV">
+
+             
+        <Button 
+          text={"Add to cart"}
+        />
+        <Button 
+          className="redButton" 
+          text={"Add to wishlist"}
+        /> 
+         </div>
+        </div>
           </div>
         </div>
       </div>}

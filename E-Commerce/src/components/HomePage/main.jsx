@@ -7,6 +7,7 @@ import Products from '../Products/Products.jsx'
 import { store } from '../../store/store.js'
 import { Provider } from 'react-redux'
 import Product from '../Product/Product.jsx'
+import ErrorPage from '../ErrorPage/ErrorPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,15 @@ const router = createBrowserRouter([
   },{
     path: "/product/:product",
     element: <Product />
+  },
+  {
+    path: "/notfound",
+    element: <ErrorPage />
+  },{
+    path: "*",
+    element: <ErrorPage />
   }
+  
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -13,21 +13,21 @@ const Dropdown = forwardRef(({ isVisible }, ref) => {
     >
       <div className="pcHardware">
         {hardware.map((item, index) => (
-          <Link key={index} onClick={window.location.href} className = "link"  to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}`}>
+          <Link key={index}  className = "link"  to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}`}>
             <li>{item}</li>
           </Link>
         ))}
       </div>
       <div className="accessories">
         {accessories.map((item, index) => (
-          <Link key={index} onClick={window.location.href} className = "link"  to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}`}>
+          <Link key={index}  className = "link"  to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}`}>
             <li>{item}</li>
           </Link>
         ))}
       </div>
       <div className="console">
         {console.map((item, index) => (
-          <Link key={index} onClick={window.location.href} className = "link" to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}` }>
+          <Link key={index} className = "link" to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}` }>
             <li>{item}</li>
           </Link>
         ))}

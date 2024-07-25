@@ -29,7 +29,7 @@ const Button = ({ className, text }) => {
       ) : (
         <>
           
-          <p>{text}</p>
+          <p className='button-text'>{text}</p>
         </>
       )}
     </button>

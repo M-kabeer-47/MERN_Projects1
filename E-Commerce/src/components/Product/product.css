@@ -5,27 +5,27 @@
 }
 .productPageDiv{
     display: grid;
-    grid-template-columns: 1fr,1fr;
+    grid-template-columns: 1fr 1fr;
     /* border: 2px solid white; */
     padding-inline: 1%;
     position: relative;
     top:150px;
     background-color: inherit;
     padding-right: 5%;
-    gap:50px;
+    gap:100px;
     
 }
 .productImageDiv{
     grid-column-start: 1;
     grid-column-end: 2;
     /* border: 2px solid orangered; */
-    max-width: 600px;
-    width: 100%;
+    max-width: 700px;
+    /* width: 100%; */
     max-height: 500px;
     margin: 0px;
+
     /* object-fit: cover; */
 }
-
 .productDetailsDiv{
     grid-column-start: 2;
     grid-column-end: 3;
@@ -43,10 +43,15 @@
     margin-bottom: 0px;
 
 }
+.specsDiv li{
+    list-style-type: disc;
+    list-style-type:circle
+}
 .productDescription{
-    border: 2px solid white;
+    /* border: 2px solid white; */
     max-width: 100%;
     text-align: start;
+    color: white;
 }
 img{
     /* border: 2px solid blanchedalmond; */
@@ -56,5 +61,97 @@ img{
 
 }
 .productCategory{
+    
+    color: rgb(255 255 255 / 40%);;
+}
+.specsDiv{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
     color: #00A7FF;
+    color: white;
+}
+h3{
+    color: #00A7FF;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.29);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0px;
+  transition: border 0.3s ease;
+}
+
+
+
+.btn{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.btn:hover {
+    background-color: black;
+}
+
+.count{
+    color:#00A7FF;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}   
+@media(max-width:1122px){
+    .hover-button{
+        padding: 10px 20px; 
+    }
+    .button-text{
+        padding-inline: 0px
+    }
+    .btn-group{
+        max-width: 150px;;
+        height: 50px;
+    }
+    .button-div{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+    }
+}
+@media(max-width: 900px){
+    .productPageDiv{
+        display: flex;
+        flex-direction: column;  
+        align-items: center; 
+    }
+    .productImageDiv{
+        
+        max-height: 700px;
+    }
+    .productDetailsDiv{
+        display: flex;
+        
+        padding-inline: 5%;
+    }
+    
+    .BUTTONDIV{
+        display: flex;
+        
+        
+        width: 100%;;
+    }
+    
+        
 }

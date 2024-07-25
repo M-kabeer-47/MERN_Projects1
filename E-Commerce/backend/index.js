@@ -19,10 +19,20 @@ async function fetchCategory(category) {
     await client.connect();
     const database = client.db("E-Commerce");
     
-    const collection = database.collection(category);
-    const products = await collection.find({}).toArray();
-    await client.close();  
+    const collection = database.collection("Products");
+    const products = await collection.find({url: category}).toArray();
+    
+    if(products.length===0)
+    {
+      console.log("yoo");
+      await client.close();  
+      return false;
+    }
+    else{
+      
     return products;
+    }
+    
     
    
 
@@ -57,11 +67,18 @@ app.get("/product/:category/:id", async (req, res) => {
   }
 });
 
-app.post("/products",async(req,res)=>{
-        let {category} = req.body
+app.get("/products/:category",async(req,res)=>{
+        let {category} = req.params
         console.log(category);
+        
         let categoryObject = await fetchCategory(category)
-        res.send(categoryObject);
+        if(categoryObject === false){
+          res.send(false);  
+        }
+        else{
+          res.send(categoryObject);
+        }
+        
 
 
 })

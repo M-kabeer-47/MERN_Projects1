@@ -12,7 +12,9 @@
     top:150px;
     background-color: inherit;
     padding-right: 5%;
-    gap:100px;
+    gap:20px;
+    margin-bottom: 400px;
+    
     
 }
 .productImageDiv{
@@ -42,6 +44,8 @@
 .productTitle{
     margin-bottom: 0px;
     width: 100%;
+    
+    text-align: start;
     
 
 }

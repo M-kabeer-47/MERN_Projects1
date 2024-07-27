@@ -20,6 +20,7 @@ const navigate =useNavigate()
     try {
       setLoading(true);
       let categoryObject = await axios.get(`http://localhost:3000/products/${category}`);
+      
       if(categoryObject.data === false){
         console.log("False");
         navigate("/notfound");
@@ -49,17 +50,19 @@ const navigate =useNavigate()
     
     const pathname = window.location.pathname;
     let category = pathname.substring(10, pathname.length);
-    const categories = ["processors", "x-box-games", "hdds", "ssds", "monitors", "power-supply", "cases", "graphic-cards", "motherboards", "rams", "keyboards", "mouse", "cables", "microphones", "webcames", "speakers", "playstation", "xbox", "ps-games", "gift-cards", "nintendo", "headphones"]
-    if (categories.includes(category)) {
+    
+    
       let categoryObject = requestBackend(category);
-    } else {
-      navigate("/notfound")
-    }
+      window.scrollTo(0, 0);
+      
+    
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [window.location.pathname]);
-
+useEffect(()=>{
+  // window.location.reload();
+})
   const dispatch = useDispatch();
   dispatch(updateCategory(CATEGORY));
 

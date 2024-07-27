@@ -9,6 +9,8 @@ import { Provider } from 'react-redux'
 import Product from '../Product/Product.jsx'
 import ErrorPage from '../ErrorPage/ErrorPage.jsx'
 import SearchResult from '../SearchResult/SearchResult.jsx'
+import Login from "./Login/Login.jsx"
+import SignUp from './Login/Signup.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,12 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <ErrorPage />
+  },{
+    path: "/login",
+    element: <Login />
+  },{
+    path: "/signup",
+    element: <SignUp />
   }
   
 ])

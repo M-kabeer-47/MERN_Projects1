@@ -8,6 +8,7 @@ import axios from "axios";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 import Button from "../Products/Button";
 import IncrementDecrementBtn from "./Quantity";
+import Footer from "../HomePage/Footer/Footer";
 export default function Product() {
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1050);
   const [product,updateProduct] = useState(null)
@@ -79,7 +80,9 @@ async function fetchProduct(){
         </div>
           </div>
         </div>
-      </div>}
+        <Footer />
+      </div>
+      }
       
     </>
   );

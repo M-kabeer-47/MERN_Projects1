@@ -13,7 +13,9 @@ const Dropdown = forwardRef(({ isVisible }, ref) => {
     >
       <div className="pcHardware">
         {hardware.map((item, index) => (
-          <Link key={index}  className = "link"  to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}`}>
+          <Link key={index}  className = "link" onClick={()=>{
+            
+          }}  to={`/products/${item.replace(/\s+/g, '-').toLowerCase()}`}>
             <li>{item}</li>
           </Link>
         ))}

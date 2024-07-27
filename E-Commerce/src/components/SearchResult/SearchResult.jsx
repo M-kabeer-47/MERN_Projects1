@@ -27,7 +27,7 @@ const navigate =useNavigate()
       let results = await axios.get(`http://localhost:3000/search/${query}`);
       if(results.data === false){
         // console.log("False");
-        // navigate("/notfound");
+        navigate("/notfound");
       }
       else{
         results = results.data;
@@ -59,6 +59,7 @@ const navigate =useNavigate()
 
     
     requestBackend(query);
+    window.scrollTo(0,0);
     
     return () => {
       window.removeEventListener("resize", handleResize);

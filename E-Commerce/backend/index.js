@@ -32,13 +32,9 @@ async function fetchCategory(category) {
       
     return products;
     }
-    
-    
-   
-
   }
   catch(er){
-    
+    return false;
   }
 }
 
